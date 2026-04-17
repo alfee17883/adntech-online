@@ -1,75 +1,218 @@
 <!DOCTYPE html>
-<html>
+<html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <title>Sistem ADN Tech</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal ADN Tech</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f5f7fb;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    .header {
-      background: #0d47a1;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    .header h1 {
-      margin: 0;
-      font-size: 20px;
-    }
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 250px;
+  background: #0d47a1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
 
-    .menu {
-      display: flex;
-      background: #1976d2;
-    }
+.logo-area {
+  text-align: center;
+  padding: 20px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
 
-    .menu button {
-      flex: 1;
-      padding: 12px;
-      border: none;
-      background: #1976d2;
-      color: white;
-      cursor: pointer;
-    }
+.logo-area img {
+  width: 70px;
+}
 
-    .menu button:hover {
-      background: #0d47a1;
-    }
+.logo-area h3 {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
 
-    iframe {
-      width: 100%;
-      height: calc(100vh - 100px);
-      border: none;
-    }
-  </style>
+.menu {
+  flex: 1;
+  padding: 10px;
+}
+
+.menu button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 8px;
+  border: none;
+  background: transparent;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.menu button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ===== MAIN ===== */
+.main {
+  flex: 1;
+  position: relative;
+  background: #f5f7fb;
+}
+
+/* HEADER */
+.header {
+  height: 60px;
+  background: #1976d2;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-weight: bold;
+}
+
+/* WATERMARK */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.watermark img {
+  width: 400px;
+}
+
+/* CONTENT */
+.content {
+  position: relative;
+  z-index: 1;
+  height: calc(100vh - 60px);
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* HOME SCREEN */
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="header">
-  <h1>PORTAL SISTEM ADN TECH</h1>
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo-area">
+    <img src="https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png">
+    <h3>SK SEKSYEN 19</h3>
+  </div>
+
+  <div class="menu">
+    <button onclick="showHome()">🏠 Dashboard</button>
+    <button onclick="loadApp('murid')">📋 Maklumat Murid</button>
+    <button onclick="loadApp('jadual')">🗓️ Jadual Anjal</button>
+    <button onclick="loadApp('disiplin')">🚨 Disiplin</button>
+  </div>
 </div>
 
-<div class="menu">
-  <button onclick="loadApp('murid')">Maklumat Murid</button>
-</div>
+<!-- MAIN -->
+<div class="main">
 
-<iframe id="appFrame" src=""></iframe>
+  <div class="header">
+    PORTAL SISTEM ADN TECH
+  </div>
+
+  <!-- WATERMARK -->
+  <div class="watermark">
+    <img src="https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png">
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content" id="contentArea">
+
+    <!-- HOME -->
+    <div class="home" id="home">
+      <div class="card-container">
+
+        <div class="card" onclick="loadApp('murid')">
+          <h3>Maklumat Murid</h3>
+        </div>
+
+        <div class="card" onclick="loadApp('jadual')">
+          <h3>Jadual Anjal</h3>
+        </div>
+
+        <div class="card" onclick="loadApp('disiplin')">
+          <h3>Disiplin</h3>
+        </div>
+
+      </div>
+    </div>
+
+    <iframe id="appFrame" style="display:none;"></iframe>
+
+  </div>
+
+</div>
 
 <script>
-  const apps = {
-    murid: "https://script.google.com/macros/s/AKfycbw5hL_7gttDwU3aoA4X-xLNPUoV_G3b2lRI-NqRbezrn_SKCOiW2Le_fuQxOZk5c76x6Q/exec",
-  };
 
-  function loadApp(app) {
-    document.getElementById("appFrame").src = apps[app];
-  }
+const apps = {
+  murid: "PASTE_URL_MURID",
+  jadual: "PASTE_URL_JADUAL",
+  disiplin: ""
+};
+
+function loadApp(app) {
+  document.getElementById("home").style.display = "none";
+  const frame = document.getElementById("appFrame");
+  frame.style.display = "block";
+  frame.src = apps[app];
+}
+
+function showHome() {
+  document.getElementById("home").style.display = "flex";
+  document.getElementById("appFrame").style.display = "none";
+}
+
 </script>
 
 </body>
