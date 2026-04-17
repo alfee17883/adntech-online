@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal SK Seksyen 19</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      background: #f4f7fb;
+    }
+
+    .sidebar {
+      width: 260px;
+      background: #114aa5;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo-area {
+      text-align: center;
+      padding: 22px 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .logo-area img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
+    .logo-area h3 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .menu {
+      flex: 1;
+      padding: 14px 12px;
+    }
+
+    .menu button,
+    .menu a {
+      width: 100%;
+      padding: 13px 14px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 10px;
+      background: transparent;
+      color: #fff;
+      text-align: left;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      text-decoration: none;
+      display: block;
+    }
+
+    .menu button:hover,
+    .menu a:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .menu button.active {
+      background: rgba(255,255,255,0.18);
+      font-weight: 700;
+    }
+
+    .sidebar-footer {
+      padding: 14px 16px 18px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+    }
+
+    .main {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      background: #f4f7fb;
+    }
+
+    .watermark {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .watermark img {
+      width: 430px;
+      max-width: 60%;
+      opacity: 0.06;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .home {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .home-placeholder {
+      text-align: center;
+      color: #4a5568;
+      background: rgba(255,255,255,0.55);
+      padding: 24px 28px;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .home-placeholder h2 {
+      margin: 0 0 8px;
+      color: #114aa5;
+      font-size: 24px;
+    }
+
+    .home-placeholder p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+      background: transparent;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 220px;
+      }
+
+      .logo-area h3 {
+        font-size: 14px;
+      }
+
+      .menu button,
+      .menu a {
+        font-size: 15px;
+      }
+
+      .watermark img {
+        max-width: 72%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="logo-area">
+      <img src="https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png" alt="Logo Sekolah">
+      <h3>SK SEKSYEN 19</h3>
+    </div>
+
+    <div class="menu">
+      <button id="btn-dashboard" onclick="showHome()">🏠 Dashboard</button>
+      <button id="btn-murid" onclick="loadApp('murid', this)">📋 Maklumat Murid</button>
+      <button id="btn-jadual" onclick="loadApp('jadual', this)">🗓️ Jadual Anjal</button>
+      <button id="btn-disiplin" onclick="loadApp('disiplin', this)">🚨 Disiplin</button>
+      <a href="/">↩ Kembali ke Portal Utama</a>
+    </div>
+
+    <div class="sidebar-footer">
+      Powered by ADN Tech
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="watermark">
+      <img src="https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png" alt="Watermark Logo">
+    </div>
+
+    <div class="content">
+      <div class="home" id="home">
+        <div class="home-placeholder">
+          <h2>Portal SK Seksyen 19</h2>
+          <p>Sila pilih modul pada sidebar untuk membuka sistem.</p>
+        </div>
+      </div>
+
+      <iframe id="appFrame"></iframe>
+    </div>
+  </main>
+
+  <script>
+    const apps = {
+      murid: "https://script.google.com/macros/s/AKfycbw5hL_7gttDwU3aoA4X-xLNPUoV_G3b21RI-NqRbezrn_SKC0iW2Le_fuQx0Zk5c76x6Q/exec",
+      jadual: "https://script.google.com/macros/s/AKfycbw276dOwuAauwX5XXjg6cRfy5SDFz0twnhIC6nHMBudUSdP9tw5-N7c95G1gkog31xk/exec",
+      disiplin: ""
+    };
+
+    function clearActive() {
+      document.querySelectorAll(".menu button").forEach(btn => btn.classList.remove("active"));
+    }
+
+    function loadApp(app, el) {
+      const url = apps[app];
+
+      if (!url || !url.startsWith("https://")) {
+        alert("Modul ini belum siap atau URL belum dimasukkan.");
+        return;
+      }
+
+      clearActive();
+      if (el) el.classList.add("active");
+
+      document.getElementById("home").style.display = "none";
+
+      const frame = document.getElementById("appFrame");
+      frame.style.display = "block";
+      frame.src = url;
+    }
+
+    function showHome() {
+      clearActive();
+      document.getElementById("btn-dashboard").classList.add("active");
+
+      const frame = document.getElementById("appFrame");
+      frame.style.display = "none";
+      frame.src = "";
+
+      document.getElementById("home").style.display = "flex";
+    }
+
+    showHome();
+  </script>
+
+</body>
+</html>
