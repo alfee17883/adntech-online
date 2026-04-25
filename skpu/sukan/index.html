@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Sistem Sukan - ADN TECH</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --bg:#0b0f17;
+      --panel:#101826;
+      --text:#f8fafc;
+      --muted:#b8c2d3;
+      --line:rgba(255,255,255,.12);
+      --accent:#f97316;
+      --accent2:#fb923c;
+      --radius:24px;
+      --shadow:0 18px 45px rgba(0,0,0,.45);
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(249,115,22,.2), transparent 30%),
+        linear-gradient(180deg, #06080d 0%, #0b0f17 100%);
+      color:var(--text);
+    }
+
+    .app {
+      max-width:1200px;
+      margin:auto;
+      padding:30px 20px;
+    }
+
+    /* HEADER */
+    .hero {
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .logo {
+      width:90px;
+      margin-bottom:12px;
+    }
+
+    .hero small {
+      color:#fed7aa;
+      font-weight:bold;
+      letter-spacing:1px;
+    }
+
+    .hero h1 {
+      margin:10px 0 6px;
+      font-size:32px;
+      color:#fff7ed;
+    }
+
+    .hero h2 {
+      margin:0;
+      font-size:16px;
+      color:#cbd5f5;
+    }
+
+    /* GRID */
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:22px;
+    }
+
+    /* CARD */
+    .card {
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card:hover {
+      transform:translateY(-6px);
+      border-color:rgba(249,115,22,.4);
+      box-shadow:0 22px 50px rgba(249,115,22,.2);
+    }
+
+    .card::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:3px;
+      background:linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity:.5;
+    }
+
+    .icon {
+      font-size:34px;
+      margin-bottom:10px;
+    }
+
+    .card h3 {
+      margin:8px 0;
+      font-size:20px;
+      color:#fff;
+    }
+
+    .card p {
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align:center;
+      margin-top:40px;
+      color:#94a3b8;
+      font-size:13px;
+    }
+
+    @media (max-width:600px){
+      .hero h1 { font-size:24px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- HEADER -->
+    <div class="hero">
+      <img class="logo" src="https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png">
+      <small>ADN TECH SYSTEM</small>
+      <h1>PORTAL SISTEM SUKAN TAHUNAN</h1>
+      <h2>Pengurusan Kejohanan Sukan Sekolah</h2>
+    </div>
+
+    <!-- MENU -->
+    <div class="grid">
+
+      <div class="card" onclick="go('dashboard')">
+        <div class="icon">🏆</div>
+        <h3>Dashboard</h3>
+        <p>Paparan umum kedudukan rumah sukan, pungutan mata dan keputusan semasa.</p>
+      </div>
+
+      <div class="card" onclick="go('guru')">
+        <div class="icon">👨‍🏫</div>
+        <h3>Modul Guru</h3>
+        <p>Pendaftaran peserta, semakan dan pengurusan penyertaan murid.</p>
+      </div>
+
+      <div class="card" onclick="go('statistik')">
+        <div class="icon">📊</div>
+        <h3>Statistik</h3>
+        <p>Analisis keputusan, laporan dan cetakan data kejohanan.</p>
+      </div>
+
+      <div class="card" onclick="go('admin')">
+        <div class="icon">⚙️</div>
+        <h3>Admin</h3>
+        <p>Kawalan sistem, tetapan kejohanan dan penyeliaan penuh data.</p>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      Sistem Pengurusan Sukan Sekolah © ADN TECH
+    </div>
+
+  </div>
+
+  <script>
+    const LINKS = {
+      dashboard: "PASTE_LINK_DASHBOARD",
+      guru: "PASTE_LINK_GURU",
+      statistik: "#",
+      admin: "#"
+    };
+
+    function go(page){
+      const url = LINKS[page];
+      if(!url || url === "#"){
+        alert("Modul ini akan dibangunkan seterusnya.");
+        return;
+      }
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
