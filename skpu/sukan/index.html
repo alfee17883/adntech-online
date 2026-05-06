@@ -142,34 +142,46 @@
       <h2>Pengurusan Kejohanan Sukan Sekolah</h2>
     </div>
 
-    <!-- MENU -->
-    <div class="grid">
+<!-- MENU -->
+<div class="grid">
 
-      <div class="card" onclick="go('dashboard')">
-        <div class="icon">🏆</div>
-        <h3>Dashboard</h3>
-        <p>Paparan umum kedudukan rumah sukan, pungutan mata dan keputusan semasa.</p>
-      </div>
+  <div class="card" onclick="go('dashboard')">
+    <div class="icon">🏆</div>
+    <h3>Dashboard</h3>
+    <p>Paparan umum kedudukan rumah sukan, pungutan mata dan keputusan semasa.</p>
+  </div>
 
-      <div class="card" onclick="go('guru')">
-        <div class="icon">👨‍🏫</div>
-        <h3>Modul Guru</h3>
-        <p>Pendaftaran peserta, semakan dan pengurusan penyertaan murid.</p>
-      </div>
+  <div class="card" onclick="go('guru')">
+    <div class="icon">👨‍🏫</div>
+    <h3>Guru</h3>
+    <p>Pendaftaran peserta, semakan dan pengurusan penyertaan murid.</p>
+  </div>
 
-      <div class="card" onclick="go('statistik')">
-        <div class="icon">📊</div>
-        <h3>Statistik</h3>
-        <p>Analisis keputusan, laporan dan cetakan data kejohanan.</p>
-      </div>
+  <div class="card" onclick="go('urusetia')">
+    <div class="icon">🧾</div>
+    <h3>Urusetia</h3>
+    <p>Jana senarai mula, susunan lorong dan cetakan borang rasmi.</p>
+  </div>
 
-      <div class="card" onclick="go('admin')">
-        <div class="icon">⚙️</div>
-        <h3>Admin</h3>
-        <p>Kawalan sistem, tetapan kejohanan dan penyeliaan penuh data.</p>
-      </div>
+  <div class="card" onclick="go('statistik')">
+    <div class="icon">📊</div>
+    <h3>Statistik</h3>
+    <p>Input keputusan, kedudukan, markah dan cetakan keputusan rasmi.</p>
+  </div>
 
-    </div>
+  <div class="card" onclick="go('acara_khas')">
+    <div class="icon">🎯</div>
+    <h3>Acara Khas</h3>
+    <p>Pengurusan markah acara khas seperti sukaneka, perbarisan dan tarik tali.</p>
+  </div>
+
+  <div class="card" onclick="go('admin')">
+    <div class="icon">⚙️</div>
+    <h3>Admin</h3>
+    <p>Kawalan sistem, tetapan kejohanan dan penyeliaan penuh data.</p>
+  </div>
+
+</div>
 
     <div class="footer">
       Sistem Pengurusan Sukan Sekolah © ADN TECH
@@ -179,10 +191,12 @@
 
   <script>
     const LINKS = {
-      dashboard: "https://script.google.com/macros/s/AKfycbwf8JjzM6MYrsXaoWjAhVmJswc0dY4YVI5G34dSr7dNsAoFKDdOmQc7lK9ZPzQRVXRkOg/exec?page=dashboard",
-      guru: "https://script.google.com/macros/s/AKfycbwf8JjzM6MYrsXaoWjAhVmJswc0dY4YVI5G34dSr7dNsAoFKDdOmQc7lK9ZPzQRVXRkOg/exec",
-      statistik: "https://script.google.com/macros/s/AKfycbwf8JjzM6MYrsXaoWjAhVmJswc0dY4YVI5G34dSr7dNsAoFKDdOmQc7lK9ZPzQRVXRkOg/exec?page=statistik",
-      admin: "#"
+      dashboard: "https://script.google.com/macros/s/AKfycbwsKXjqcYvKT0UTxbA-KHPtG7hLViS3XAD9fcafJ90g2JCK3SXBEqeUit-dnj4Uv_nO8A/exec?page=dashboard",
+      guru: "https://script.google.com/macros/s/AKfycbwsKXjqcYvKT0UTxbA-KHPtG7hLViS3XAD9fcafJ90g2JCK3SXBEqeUit-dnj4Uv_nO8A/exec",
+      urusetia: "https://script.google.com/macros/s/AKfycbwsKXjqcYvKT0UTxbA-KHPtG7hLViS3XAD9fcafJ90g2JCK3SXBEqeUit-dnj4Uv_nO8A/exec?page=urusetia",
+      statistik: "https://script.google.com/macros/s/AKfycbwsKXjqcYvKT0UTxbA-KHPtG7hLViS3XAD9fcafJ90g2JCK3SXBEqeUit-dnj4Uv_nO8A/exec?page=statistik",
+      acara_khas: "https://script.google.com/macros/s/AKfycbwsKXjqcYvKT0UTxbA-KHPtG7hLViS3XAD9fcafJ90g2JCK3SXBEqeUit-dnj4Uv_nO8A/exec?page=acara_khas",
+      admin: "https://script.google.com/macros/s/AKfycbwsKXjqcYvKT0UTxbA-KHPtG7hLViS3XAD9fcafJ90g2JCK3SXBEqeUit-dnj4Uv_nO8A/exec?page=admin"
     };
 
     function go(page){
