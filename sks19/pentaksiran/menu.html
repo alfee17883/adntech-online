@@ -22,6 +22,7 @@
       --orange:#d97706;
       --blue:#2563eb;
       --purple:#7c3aed;
+      --red:#dc2626;
     }
 
     html,body{
@@ -215,6 +216,17 @@
       margin-top:4px;
     }
 
+    .menuCard.adminCard{
+      grid-column:1 / -1;
+      min-height:160px;
+      border-color:#fecaca;
+      background:linear-gradient(135deg,#ffffff 0%,#fff7f7 100%);
+    }
+
+    .menuCard.adminCard .menuDesc{
+      max-width:720px;
+    }
+
     .menuCard{
       position:relative;
       border:1px solid var(--line);
@@ -359,7 +371,7 @@
           <div>
             <div class="title">Menu Utama</div>
             <div class="desc">
-              Akses pantas kepada modul kemasukan markah, analisa, dashboard dan transkrip.
+              Akses pantas kepada modul kemasukan markah, analisa, dashboard, transkrip dan admin.
             </div>
           </div>
           <div class="badge">SISTEM AKTIF</div>
@@ -393,10 +405,17 @@
             <div class="menuDesc">Modul transkrip individu dan kelas dengan cetakan rasmi serta nama subjek penuh.</div>
             <div class="openBtn">BUKA MODUL</div>
           </div>
+
+          <div class="menuCard adminCard" tabindex="0" style="--accent:var(--red)" onclick="openPage('admin')" onkeydown="enterOpen(event,'admin')">
+            <div class="icon">⚙</div>
+            <div class="menuTitle">Admin Peperiksaan</div>
+            <div class="menuDesc">Modul khas SU Peperiksaan untuk kawalan OPEN/CLOSED peperiksaan, pengurusan murid masuk/keluar dan kawalan data sistem.</div>
+            <div class="openBtn">BUKA MODUL ADMIN</div>
+          </div>
         </div>
 
         <div class="footerInfo">
-          <div>Cadangan penggunaan: guru guna Markah Ujian, SU Peperiksaan guna Analisa / Dashboard / Transkrip.</div>
+          <div>Cadangan penggunaan: guru guna Markah Ujian; SU Peperiksaan guna Analisa / Dashboard / Transkrip / Admin.</div>
           <div id="today"></div>
         </div>
       </main>
@@ -408,7 +427,7 @@
      * TUKAR 2 NILAI DI BAWAH SAHAJA
      ********************************************************/
 
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZfjhUyeZmrSHH7UXJefXbVqXnsHiGECYTkrVwohXodHXQ1ZiDf6GNPtY526EJAhS_/exec';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxweQGQvycI0jlfmSKX7k1EqSekvyDtbqbuU2hzF-g20vTAcmb5_o5Cj7YaUDsqU8JQXQ/exec';
 
     const LOGO_URL = 'https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png';
 
