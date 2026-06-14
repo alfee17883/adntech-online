@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem NILAM SK Seksyen 19</title>
+
+  <style>
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:"Segoe UI",Arial,sans-serif;
+      background:linear-gradient(135deg,#eef4ff,#f8fafc);
+      color:#111827;
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .box{
+      width:100%;
+      max-width:900px;
+      background:white;
+      border-radius:26px;
+      padding:36px;
+      box-shadow:0 18px 45px rgba(15,23,42,.12);
+      text-align:center;
+      border:1px solid #e5e7eb;
+    }
+
+    .logo{
+      width:90px;
+      height:90px;
+      object-fit:contain;
+      margin-bottom:12px;
+    }
+
+    h1{
+      margin:8px 0 4px;
+      font-size:30px;
+      color:#0f172a;
+    }
+
+    h2{
+      margin:0;
+      font-size:22px;
+      color:#2563eb;
+    }
+
+    .desc{
+      margin:12px auto 26px;
+      max-width:620px;
+      color:#64748b;
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+      margin-top:24px;
+    }
+
+    .card{
+      display:block;
+      text-decoration:none;
+      background:#ffffff;
+      border:1px solid #dbe4f0;
+      border-radius:18px;
+      padding:22px;
+      color:#0f172a;
+      transition:.2s ease;
+      text-align:left;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:#2563eb;
+      box-shadow:0 12px 28px rgba(37,99,235,.16);
+    }
+
+    .icon{
+      font-size:34px;
+      margin-bottom:10px;
+    }
+
+    .title{
+      font-size:20px;
+      font-weight:800;
+      margin-bottom:6px;
+    }
+
+    .small{
+      font-size:14px;
+      color:#64748b;
+      line-height:1.45;
+    }
+
+    .footer{
+      margin-top:30px;
+      font-size:13px;
+      color:#64748b;
+    }
+
+    @media(max-width:700px){
+      .box{padding:26px}
+      h1{font-size:24px}
+      h2{font-size:18px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="box">
+
+      <img class="logo"
+        src="https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png"
+        alt="Logo Sekolah">
+
+      <h1>Sekolah Kebangsaan Seksyen 19</h1>
+      <h2>Sistem Perekodan NILAM</h2>
+
+      <div class="desc">
+        Portal utama Sistem NILAM untuk perekodan bacaan, statistik, dashboard,
+        pentadbiran, trend bacaan, anugerah dan sijil penghargaan.
+      </div>
+
+      <div class="grid">
+
+        <a class="card" href="PASTE_URL_WEBAPP_TUAN?p=perekodan">
+          <div class="icon">📚</div>
+          <div class="title">Perekodan</div>
+          <div class="small">Rekod bacaan murid secara individu.</div>
+        </a>
+
+        <a class="card" href="PASTE_URL_WEBAPP_TUAN?p=statistik">
+          <div class="icon">📊</div>
+          <div class="title">Statistik</div>
+          <div class="small">Analisis bacaan mengikut kelas, aliran dan tarikh.</div>
+        </a>
+
+        <a class="card" href="PASTE_URL_WEBAPP_TUAN?p=dashboard">
+          <div class="icon">🏆</div>
+          <div class="title">Dashboard</div>
+          <div class="small">Paparan pencapaian NILAM sekolah secara visual.</div>
+        </a>
+
+        <a class="card" href="PASTE_URL_WEBAPP_TUAN?p=admin">
+          <div class="icon">⚙️</div>
+          <div class="title">Admin</div>
+          <div class="small">Tetapan sistem, trend bacaan, anugerah dan sijil.</div>
+        </a>
+
+      </div>
+
+      <div class="footer">
+        © 2026 Sistem NILAM SK Seksyen 19 · ADNTECH Online
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>
