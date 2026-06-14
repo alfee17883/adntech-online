@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistem NILAM SK Seksyen 19</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Perekodan NILAM SK Seksyen 19</title>
 
   <style>
     *{box-sizing:border-box}
@@ -11,8 +11,9 @@
     body{
       margin:0;
       font-family:"Segoe UI",Arial,sans-serif;
-      background:linear-gradient(135deg,#eef4ff,#f8fafc);
-      color:#111827;
+      background:
+        radial-gradient(circle at top left,#dbeafe 0,#f8fafc 38%,#eef2ff 100%);
+      color:#0f172a;
     }
 
     .page{
@@ -23,147 +24,222 @@
       padding:24px;
     }
 
-    .box{
+    .portal{
       width:100%;
-      max-width:900px;
-      background:white;
-      border-radius:26px;
-      padding:36px;
-      box-shadow:0 18px 45px rgba(15,23,42,.12);
-      text-align:center;
+      max-width:1050px;
+      background:rgba(255,255,255,.96);
       border:1px solid #e5e7eb;
+      border-radius:30px;
+      padding:34px;
+      box-shadow:0 22px 60px rgba(15,23,42,.14);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .portal::before{
+      content:"NILAM";
+      position:absolute;
+      right:-35px;
+      top:20px;
+      font-size:110px;
+      font-weight:900;
+      color:#2563eb;
+      opacity:.05;
+      letter-spacing:4px;
+      pointer-events:none;
+    }
+
+    .header{
+      text-align:center;
+      padding-bottom:24px;
+      border-bottom:1px solid #e5e7eb;
+      position:relative;
+      z-index:1;
     }
 
     .logo{
-      width:90px;
-      height:90px;
+      width:92px;
+      height:92px;
       object-fit:contain;
-      margin-bottom:12px;
+      margin-bottom:10px;
     }
 
     h1{
-      margin:8px 0 4px;
+      margin:6px 0 4px;
       font-size:30px;
-      color:#0f172a;
+      color:#111827;
     }
 
     h2{
       margin:0;
-      font-size:22px;
+      font-size:21px;
       color:#2563eb;
+      font-weight:800;
     }
 
     .desc{
-      margin:12px auto 26px;
-      max-width:620px;
+      max-width:720px;
+      margin:12px auto 0;
       color:#64748b;
       font-size:15px;
-      line-height:1.5;
+      line-height:1.6;
+    }
+
+    .badge{
+      display:inline-block;
+      margin-top:14px;
+      background:#eff6ff;
+      color:#1d4ed8;
+      border:1px solid #bfdbfe;
+      padding:7px 15px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
     }
 
     .grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
-      gap:16px;
-      margin-top:24px;
+      gap:18px;
+      margin-top:28px;
+      position:relative;
+      z-index:1;
     }
 
     .card{
-      display:block;
       text-decoration:none;
       background:#ffffff;
       border:1px solid #dbe4f0;
-      border-radius:18px;
-      padding:22px;
+      border-radius:22px;
+      padding:24px;
       color:#0f172a;
-      transition:.2s ease;
-      text-align:left;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      transition:.22s ease;
+      min-height:132px;
     }
 
     .card:hover{
       transform:translateY(-5px);
       border-color:#2563eb;
-      box-shadow:0 12px 28px rgba(37,99,235,.16);
+      box-shadow:0 14px 30px rgba(37,99,235,.17);
     }
 
-    .icon{
+    .iconBox{
+      width:66px;
+      height:66px;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       font-size:34px;
-      margin-bottom:10px;
+      background:#eff6ff;
+      flex-shrink:0;
     }
 
     .title{
-      font-size:20px;
-      font-weight:800;
+      font-size:21px;
+      font-weight:900;
       margin-bottom:6px;
     }
 
     .small{
-      font-size:14px;
       color:#64748b;
+      font-size:14px;
       line-height:1.45;
     }
 
     .footer{
-      margin-top:30px;
-      font-size:13px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid #e5e7eb;
+      text-align:center;
       color:#64748b;
+      font-size:13px;
+      position:relative;
+      z-index:1;
     }
 
-    @media(max-width:700px){
-      .box{padding:26px}
+    @media(max-width:760px){
+      .portal{padding:24px;border-radius:24px}
       h1{font-size:24px}
       h2{font-size:18px}
       .grid{grid-template-columns:1fr}
+      .card{padding:20px;min-height:116px}
+      .portal::before{font-size:70px;right:-20px}
     }
   </style>
 </head>
 
 <body>
   <main class="page">
-    <section class="box">
+    <section class="portal">
 
-      <img class="logo"
-        src="https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png"
-        alt="Logo Sekolah">
+      <div class="header">
+        <img
+          class="logo"
+          src="https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png"
+          alt="Logo Sekolah"
+        >
 
-      <h1>Sekolah Kebangsaan Seksyen 19</h1>
-      <h2>Sistem Perekodan NILAM</h2>
+        <h1>Sekolah Kebangsaan Seksyen 19</h1>
+        <h2>Sistem Perekodan NILAM</h2>
 
-      <div class="desc">
-        Portal utama Sistem NILAM untuk perekodan bacaan, statistik, dashboard,
-        pentadbiran, trend bacaan, anugerah dan sijil penghargaan.
+        <div class="desc">
+          Portal utama Sistem NILAM untuk perekodan bacaan, statistik,
+          dashboard pencapaian, pentadbiran, trend bacaan, anugerah dan sijil.
+        </div>
+
+        <div class="badge">ADNTECH ONLINE · NILAM SKS19</div>
       </div>
 
       <div class="grid">
 
-        <a class="card" href="PASTE_URL_WEBAPP_TUAN?p=perekodan">
-          <div class="icon">📚</div>
-          <div class="title">Perekodan</div>
-          <div class="small">Rekod bacaan murid secara individu.</div>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbw9GTpHmHIbNk7xVZzaFqmSpax4cT2T7Oao1blfr7e9u32K0ZgPcDNRQZJMm2oKgiAxmA/exec?p=perekodan">
+          <div class="iconBox">📚</div>
+          <div>
+            <div class="title">Perekodan Bacaan</div>
+            <div class="small">
+              Rekod bacaan murid secara individu dengan pilihan kelas dan nama murid.
+            </div>
+          </div>
         </a>
 
-        <a class="card" href="PASTE_URL_WEBAPP_TUAN?p=statistik">
-          <div class="icon">📊</div>
-          <div class="title">Statistik</div>
-          <div class="small">Analisis bacaan mengikut kelas, aliran dan tarikh.</div>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbw9GTpHmHIbNk7xVZzaFqmSpax4cT2T7Oao1blfr7e9u32K0ZgPcDNRQZJMm2oKgiAxmA/exec?p=statistik">
+          <div class="iconBox">📊</div>
+          <div>
+            <div class="title">Statistik NILAM</div>
+            <div class="small">
+              Analisis bacaan mengikut kelas, aliran, tarikh dan jumlah bacaan.
+            </div>
+          </div>
         </a>
 
-        <a class="card" href="PASTE_URL_WEBAPP_TUAN?p=dashboard">
-          <div class="icon">🏆</div>
-          <div class="title">Dashboard</div>
-          <div class="small">Paparan pencapaian NILAM sekolah secara visual.</div>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbw9GTpHmHIbNk7xVZzaFqmSpax4cT2T7Oao1blfr7e9u32K0ZgPcDNRQZJMm2oKgiAxmA/exec?p=dashboard">
+          <div class="iconBox">🏆</div>
+          <div>
+            <div class="title">Dashboard</div>
+            <div class="small">
+              Paparan pencapaian murid, kelas, pembaca terbaik dan leaderboard.
+            </div>
+          </div>
         </a>
 
-        <a class="card" href="PASTE_URL_WEBAPP_TUAN?p=admin">
-          <div class="icon">⚙️</div>
-          <div class="title">Admin</div>
-          <div class="small">Tetapan sistem, trend bacaan, anugerah dan sijil.</div>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbw9GTpHmHIbNk7xVZzaFqmSpax4cT2T7Oao1blfr7e9u32K0ZgPcDNRQZJMm2oKgiAxmA/exec?p=admin">
+          <div class="iconBox">⚙️</div>
+          <div>
+            <div class="title">Admin NILAM</div>
+            <div class="small">
+              Tetapan sistem, trend bacaan, anugerah NILAM dan cetakan sijil.
+            </div>
+          </div>
         </a>
 
       </div>
 
       <div class="footer">
-        © 2026 Sistem NILAM SK Seksyen 19 · ADNTECH Online
+        © 2026 Sistem Perekodan NILAM · Sekolah Kebangsaan Seksyen 19 · ADNTECH Online
       </div>
 
     </section>
