@@ -8,12 +8,22 @@
   <style>
     *{box-sizing:border-box}
 
+    :root{
+      --blue:#2563eb;
+      --blue-dark:#1d4ed8;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#e5e7eb;
+      --soft:#f8fafc;
+      --card:#ffffff;
+      --warn:#fff7ed;
+    }
+
     body{
       margin:0;
       font-family:"Segoe UI",Arial,sans-serif;
-      background:
-        radial-gradient(circle at top left,#dbeafe 0,#f8fafc 38%,#eef2ff 100%);
-      color:#0f172a;
+      background:linear-gradient(135deg,#eef2ff 0%,#f8fafc 42%,#e0f2fe 100%);
+      color:var(--text);
     }
 
     .page{
@@ -26,24 +36,23 @@
 
     .portal{
       width:100%;
-      max-width:1050px;
-      background:rgba(255,255,255,.96);
-      border:1px solid #e5e7eb;
+      max-width:1120px;
+      background:rgba(255,255,255,.97);
+      border:1px solid rgba(226,232,240,.95);
       border-radius:30px;
-      padding:34px;
-      box-shadow:0 22px 60px rgba(15,23,42,.14);
-      position:relative;
+      box-shadow:0 24px 70px rgba(15,23,42,.16);
       overflow:hidden;
+      position:relative;
     }
 
     .portal::before{
       content:"NILAM";
       position:absolute;
-      right:-35px;
-      top:20px;
-      font-size:110px;
+      right:-34px;
+      top:18px;
+      font-size:116px;
       font-weight:900;
-      color:#2563eb;
+      color:var(--blue);
       opacity:.05;
       letter-spacing:4px;
       pointer-events:none;
@@ -51,8 +60,9 @@
 
     .header{
       text-align:center;
-      padding-bottom:24px;
-      border-bottom:1px solid #e5e7eb;
+      padding:34px 30px 24px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
       position:relative;
       z-index:1;
     }
@@ -68,63 +78,123 @@
       margin:6px 0 4px;
       font-size:30px;
       color:#111827;
+      letter-spacing:-.4px;
     }
 
     h2{
       margin:0;
       font-size:21px;
-      color:#2563eb;
-      font-weight:800;
+      color:var(--blue);
+      font-weight:900;
     }
 
     .desc{
-      max-width:720px;
-      margin:12px auto 0;
-      color:#64748b;
+      max-width:760px;
+      margin:13px auto 0;
+      color:var(--muted);
       font-size:15px;
-      line-height:1.6;
+      line-height:1.65;
+    }
+
+    .badgeRow{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:15px;
     }
 
     .badge{
-      display:inline-block;
-      margin-top:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
       background:#eff6ff;
       color:#1d4ed8;
       border:1px solid #bfdbfe;
       padding:7px 15px;
       border-radius:999px;
       font-size:13px;
-      font-weight:800;
+      font-weight:900;
+    }
+
+    .content{
+      padding:28px 34px 34px;
+      position:relative;
+      z-index:1;
+    }
+
+    .sectionTitle{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:16px;
+    }
+
+    .eyebrow{
+      color:var(--blue);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:5px;
+    }
+
+    .sectionTitle h3{
+      margin:0;
+      font-size:24px;
+      color:#020617;
+      letter-spacing:-.3px;
+    }
+
+    .hint{
+      color:var(--muted);
+      font-size:13px;
+      text-align:right;
+      line-height:1.45;
     }
 
     .grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:18px;
-      margin-top:28px;
-      position:relative;
-      z-index:1;
     }
 
     .card{
       text-decoration:none;
-      background:#ffffff;
+      background:var(--card);
       border:1px solid #dbe4f0;
       border-radius:22px;
-      padding:24px;
-      color:#0f172a;
+      padding:22px;
+      color:var(--text);
       display:flex;
       gap:18px;
       align-items:center;
       transition:.22s ease;
-      min-height:132px;
+      min-height:128px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:auto 18px 18px auto;
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      background:#eff6ff;
+      opacity:.0;
+      transition:.22s ease;
     }
 
     .card:hover{
       transform:translateY(-5px);
-      border-color:#2563eb;
+      border-color:var(--blue);
       box-shadow:0 14px 30px rgba(37,99,235,.17);
     }
+
+    .card:hover::after{opacity:.75;}
 
     .iconBox{
       width:66px;
@@ -136,38 +206,68 @@
       font-size:34px;
       background:#eff6ff;
       flex-shrink:0;
+      box-shadow:inset 0 0 0 1px #dbeafe;
     }
 
     .title{
       font-size:21px;
       font-weight:900;
       margin-bottom:6px;
+      letter-spacing:-.2px;
     }
 
     .small{
-      color:#64748b;
+      color:var(--muted);
       font-size:14px;
       line-height:1.45;
     }
 
+    .adminCard{
+      grid-column:1 / -1;
+      background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
+    }
+
+    .adminCard .iconBox{
+      background:#f1f5f9;
+      box-shadow:inset 0 0 0 1px #cbd5e1;
+    }
+
+    .note{
+      margin-top:20px;
+      background:var(--warn);
+      border:1px solid #fed7aa;
+      color:#9a3412;
+      border-radius:16px;
+      padding:14px 16px;
+      font-size:14px;
+      line-height:1.55;
+    }
+
     .footer{
-      margin-top:28px;
-      padding-top:18px;
-      border-top:1px solid #e5e7eb;
+      padding:18px 30px;
+      border-top:1px solid var(--line);
       text-align:center;
-      color:#64748b;
+      color:var(--muted);
       font-size:13px;
+      background:#ffffff;
       position:relative;
       z-index:1;
     }
 
     @media(max-width:760px){
-      .portal{padding:24px;border-radius:24px}
-      h1{font-size:24px}
-      h2{font-size:18px}
-      .grid{grid-template-columns:1fr}
-      .card{padding:20px;min-height:116px}
-      .portal::before{font-size:70px;right:-20px}
+      .page{padding:14px;align-items:flex-start;}
+      .portal{border-radius:24px;}
+      .header{padding:26px 20px 20px;}
+      .logo{width:78px;height:78px;}
+      h1{font-size:24px;}
+      h2{font-size:18px;}
+      .content{padding:22px 18px 24px;}
+      .sectionTitle{align-items:flex-start;flex-direction:column;}
+      .hint{text-align:left;}
+      .grid{grid-template-columns:1fr;}
+      .adminCard{grid-column:auto;}
+      .card{padding:20px;min-height:116px;}
+      .portal::before{font-size:72px;right:-22px;}
     }
   </style>
 </head>
@@ -175,7 +275,6 @@
 <body>
   <main class="page">
     <section class="portal">
-
       <div class="header">
         <img
           class="logo"
@@ -187,62 +286,97 @@
         <h2>Sistem Perekodan NILAM</h2>
 
         <div class="desc">
-          Portal utama Sistem NILAM untuk perekodan bacaan, statistik,
-          dashboard pencapaian, pentadbiran, trend bacaan, anugerah dan sijil.
+          Portal utama Sistem NILAM untuk perekodan bacaan, statistik, dashboard pencapaian,
+          senarai kelas, sijil individu, pentadbiran, trend bacaan dan anugerah NILAM.
         </div>
 
-        <div class="badge">ADNTECH ONLINE · NILAM SKS19</div>
+        <div class="badgeRow">
+          <div class="badge">📚 ADNTECH ONLINE</div>
+          <div class="badge">🏫 NILAM SKS19</div>
+        </div>
       </div>
 
-      <div class="grid">
-
-        <a class="card" href="https://script.google.com/macros/s/AKfycbwzkfQhQncSHxDjwVqVP-W1gsRPSAJg3_uNyVYLLLfvCHSkvxt3v0a8JFbEqx84Rbd5Eg/exec?p=perekodan">
-          <div class="iconBox">📚</div>
+      <div class="content">
+        <div class="sectionTitle">
           <div>
-            <div class="title">Perekodan Bacaan</div>
-            <div class="small">
-              Rekod bacaan murid secara individu dengan pilihan kelas dan nama murid.
-            </div>
+            <div class="eyebrow">Menu Utama</div>
+            <h3>Pilih Modul Sistem</h3>
           </div>
-        </a>
+          <div class="hint">Klik kad modul untuk membuka halaman berkaitan.</div>
+        </div>
 
-        <a class="card" href="https://script.google.com/macros/s/AKfycbwzkfQhQncSHxDjwVqVP-W1gsRPSAJg3_uNyVYLLLfvCHSkvxt3v0a8JFbEqx84Rbd5Eg/exec?p=statistik">
-          <div class="iconBox">📊</div>
-          <div>
-            <div class="title">Statistik NILAM</div>
-            <div class="small">
-              Analisis bacaan mengikut kelas, aliran, tarikh dan jumlah bacaan.
+        <div class="grid">
+          <a class="card appLink" data-page="perekodan" href="#">
+            <div class="iconBox">📚</div>
+            <div>
+              <div class="title">Perekodan Bacaan</div>
+              <div class="small">
+                Rekod bacaan murid secara individu dengan pilihan kelas dan nama murid.
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <a class="card" href="https://script.google.com/macros/s/AKfycbwzkfQhQncSHxDjwVqVP-W1gsRPSAJg3_uNyVYLLLfvCHSkvxt3v0a8JFbEqx84Rbd5Eg/exec?p=dashboard">
-          <div class="iconBox">🏆</div>
-          <div>
-            <div class="title">Dashboard</div>
-            <div class="small">
-              Paparan pencapaian murid, kelas, pembaca terbaik dan leaderboard.
+          <a class="card appLink" data-page="statistik" href="#">
+            <div class="iconBox">📊</div>
+            <div>
+              <div class="title">Statistik NILAM</div>
+              <div class="small">
+                Analisis bacaan mengikut kelas, aliran, tempoh tarikh dan jumlah bacaan.
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <a class="card" href="https://script.google.com/macros/s/AKfycbwzkfQhQncSHxDjwVqVP-W1gsRPSAJg3_uNyVYLLLfvCHSkvxt3v0a8JFbEqx84Rbd5Eg/exec?p=admin">
-          <div class="iconBox">⚙️</div>
-          <div>
-            <div class="title">Admin NILAM</div>
-            <div class="small">
-              Tetapan sistem, trend bacaan, anugerah NILAM dan cetakan sijil.
+          <a class="card appLink" data-page="dashboard" href="#">
+            <div class="iconBox">🏆</div>
+            <div>
+              <div class="title">Dashboard</div>
+              <div class="small">
+                Paparan pencapaian murid, kelas, pembaca terbaik dan leaderboard NILAM.
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
 
+          <a class="card appLink" data-page="kelas" href="#">
+            <div class="iconBox">📋</div>
+            <div>
+              <div class="title">Kelas & Sijil</div>
+              <div class="small">
+                Semak senarai kelas, murid tiada bacaan dan cetak sijil NILAM individu.
+              </div>
+            </div>
+          </a>
+
+          <a class="card appLink adminCard" data-page="admin" href="#">
+            <div class="iconBox">⚙️</div>
+            <div>
+              <div class="title">Admin NILAM</div>
+              <div class="small">
+                Tetapan sistem, pengurusan murid, pembetulan bacaan, trend, anugerah dan utiliti.
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="note">
+          <b>Nota:</b> Jika Web App Apps Script ditukar kepada deployment baharu, hanya kemaskini nilai
+          <b>APP_SCRIPT_URL</b> dalam kod GitHub ini. Semua pautan modul akan dikemaskini secara automatik.
+        </div>
       </div>
 
       <div class="footer">
         © 2026 Sistem Perekodan NILAM · Sekolah Kebangsaan Seksyen 19 · ADNTECH Online
       </div>
-
     </section>
   </main>
+
+  <script>
+    // Tukar URL ini sahaja jika Apps Script Web App URL berubah.
+    const APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzkfQhQncSHxDjwVqVP-W1gsRPSAJg3_uNyVYLLLfvCHSkvxt3v0a8JFbEqx84Rbd5Eg/exec";
+
+    document.querySelectorAll('.appLink').forEach(function(link){
+      const page = link.getAttribute('data-page');
+      link.href = APP_SCRIPT_URL + '?p=' + encodeURIComponent(page);
+    });
+  </script>
 </body>
 </html>
