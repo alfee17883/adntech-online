@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="CTASY" />
   <title>Sistem Perekodan NILAM SK Seksyen 19</title>
 
   <style>
@@ -117,6 +118,12 @@
       font-size:13px;
       font-weight:900;
       letter-spacing:.02em;
+    }
+
+    .badge.creatorBadge{
+      background:#f8fafc;
+      color:#334155;
+      border-color:#cbd5e1;
     }
 
     .main{
@@ -268,6 +275,14 @@
       font-size:13px;
       position:relative;
       z-index:1;
+      line-height:1.6;
+    }
+
+    .footer .creator{
+      margin-top:4px;
+      font-weight:900;
+      color:#334155;
+      letter-spacing:.03em;
     }
 
     @media(max-width:760px){
@@ -308,8 +323,9 @@
         </div>
 
         <div class="badgeRow">
-          <div class="badge">📚 ADNTECH ONLINE-CTASY</div>
+          <div class="badge">📚 ADNTECH ONLINE</div>
           <div class="badge">🏫 NILAM SKS19</div>
+          <div class="badge creatorBadge">✨ Created by CTASY</div>
         </div>
       </div>
 
@@ -375,14 +391,15 @@
       </div>
 
       <div class="footer">
-        © 2026 Sistem Perekodan NILAM · Sekolah Kebangsaan Seksyen 19 · ADNTECH Online
+        <div>© 2026 Sistem Perekodan NILAM · Sekolah Kebangsaan Seksyen 19 · ADNTECH Online</div>
+        <div class="creator">Created by CTASY</div>
       </div>
     </section>
   </main>
 
   <script>
     // Tukar URL ini sahaja jika deployment Apps Script berubah.
-    const APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbypEZFclJsPkMG_46hU8ts0NoY9OnI71iq3tMoInPxDWdixRtOLl5x7uLuykHa2BmSoVw/exec";
+    const APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye78YMslLN9z8_iBYKFzvxYxeUN8xOHDw7hl83US9xBOzd27KCPKX6HNawGLlFE9MHDA/exec";
 
     document.querySelectorAll('[data-page]').forEach(card => {
       const page = card.getAttribute('data-page');
