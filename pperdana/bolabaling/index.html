@@ -117,22 +117,13 @@
     <footer class="footer">Portal Kejohanan Bola Baling MSSD • Dibina untuk pengurusan kejohanan daerah</footer>
   </div>
 
-  <script>
-    /*
-      PENTING:
-      Gantikan URL di bawah dengan URL Web App Apps Script tuan.
-      Contoh:
-      const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxxxxxxxxxxxx/exec";
-    */
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyahOXggCZJq3-czC8DAUY0bL7Jj8VFh1Xv3kTRJzRqNq0bQU4GwETDGJ4UdQt5VtWOVA/exec";
+<script>
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyahOXggCZJq3-czC8DAUYO6L7Jj8VFh1Xv3kTRJzRqNq0bQU4GwETDGJ4UdQt5VtWOVA/exec";
 
-    function openModule(moduleName){
-       if (!WEB_APP_URL || WEB_APP_URL === "LETAK_URL_WEB_APP_APPS_SCRIPT_DI_SINI") {
-        alert("Sila masukkan URL Web App Apps Script pada pemboleh ubah WEB_APP_URL dalam kod index.html.");
-        return;
-      }
-      window.location.href = WEB_APP_URL + "?module=" + encodeURIComponent(moduleName);
-    }
-  </script>
+  function openModule(moduleName) {
+    const baseUrl = WEB_APP_URL.replace(/\/+$/, "");
+    window.location.href = baseUrl + "?module=" + encodeURIComponent(moduleName);
+  }
+</script>
 </body>
 </html>
