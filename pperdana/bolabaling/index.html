@@ -10,56 +10,52 @@
     :root{
       --primary:#0f766e;--primary-dark:#115e59;--secondary:#0ea5e9;
       --dark:#0f172a;--muted:#64748b;--line:#e5e7eb;
-      --card:rgba(255,255,255,.92);--bg1:#ccfbf1;--bg2:#e0f2fe;--bg3:#f8fafc;
+      --card:rgba(255,255,255,.94);--bg1:#ccfbf1;--bg2:#e0f2fe;--bg3:#f8fafc;
+      --shadow:0 24px 65px rgba(15,23,42,.08);--shadow-hover:0 28px 78px rgba(15,23,42,.14)
     }
     body{
       margin:0;min-height:100vh;font-family:"Segoe UI",Arial,sans-serif;color:var(--dark);
-      background:radial-gradient(circle at top left,var(--bg1) 0,transparent 32%),
-                 radial-gradient(circle at bottom right,var(--bg2) 0,transparent 34%),
-                 linear-gradient(135deg,var(--bg3),#eef2ff);
-      overflow-x:hidden;
+      background:radial-gradient(circle at top left,var(--bg1) 0,transparent 32%),radial-gradient(circle at bottom right,var(--bg2) 0,transparent 34%),linear-gradient(135deg,var(--bg3),#eef2ff);overflow-x:hidden
     }
     .page{min-height:100vh;display:flex;flex-direction:column;position:relative}
-    .bg-watermark{position:fixed;right:-60px;bottom:-80px;width:520px;max-width:55vw;opacity:.055;pointer-events:none;z-index:0}
-    .topbar{
-      position:relative;z-index:2;padding:20px 30px;display:flex;justify-content:space-between;align-items:center;gap:18px;
-      background:rgba(255,255,255,.76);backdrop-filter:blur(14px);border-bottom:1px solid rgba(226,232,240,.9)
-    }
+    .bg-watermark{position:fixed;right:-80px;bottom:-100px;width:600px;max-width:58vw;opacity:.05;pointer-events:none;z-index:0}
+    .topbar{position:relative;z-index:2;padding:20px 30px;display:flex;justify-content:space-between;align-items:center;gap:18px;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(226,232,240,.9)}
     .brand{display:flex;align-items:center;gap:14px;min-width:0}
     .brand-logo{width:60px;height:60px;border-radius:18px;background:#fff;border:1px solid #dbeafe;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 14px 30px rgba(15,118,110,.15);padding:6px;flex:0 0 auto}
     .brand-logo img{width:100%;height:100%;object-fit:contain;display:block}
     .brand-text h1{margin:0;font-size:21px;line-height:1.15;letter-spacing:-.2px}
     .brand-text p{margin:5px 0 0;font-size:13px;color:var(--muted)}
-    .top-pill{border:1px solid var(--line);background:white;border-radius:999px;padding:10px 14px;font-size:13px;color:var(--muted);white-space:nowrap}
-    .main{position:relative;z-index:1;width:100%;max-width:1180px;margin:0 auto;padding:44px 22px 52px;flex:1;display:grid;grid-template-columns:1fr;gap:26px}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
-    .hero-card,.quick-card,.module-card{background:var(--card);border:1px solid rgba(226,232,240,.95);border-radius:28px;box-shadow:0 24px 65px rgba(15,23,42,.08)}
-    .hero-card{position:relative;overflow:hidden;padding:38px;min-height:370px;display:flex;flex-direction:column;justify-content:center}
-    .hero-card:after{content:"";position:absolute;right:-90px;bottom:-90px;width:280px;height:280px;background:radial-gradient(circle,rgba(14,165,233,.22),transparent 66%);border-radius:999px}
-    .hero-watermark{position:absolute;right:26px;bottom:18px;width:310px;max-width:42%;opacity:.08;pointer-events:none;z-index:0}
+    .top-pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-size:13px;color:var(--muted);white-space:nowrap}
+    .main{position:relative;z-index:1;width:100%;max-width:1180px;margin:0 auto;padding:42px 22px 52px;flex:1}
+    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:stretch}
+    .hero-card,.module-card,.note{background:var(--card);border:1px solid rgba(226,232,240,.95);border-radius:28px;box-shadow:var(--shadow)}
+    .hero-card{position:relative;overflow:hidden;padding:44px;min-height:350px;display:flex;flex-direction:column;justify-content:center}
+    .hero-card::after{content:"";position:absolute;right:-90px;bottom:-90px;width:280px;height:280px;background:radial-gradient(circle,rgba(14,165,233,.22),transparent 66%);border-radius:999px}
+    .hero-watermark{position:absolute;right:28px;bottom:8px;width:360px;max-width:36%;opacity:.075;pointer-events:none;z-index:0}
     .hero-card>*:not(.hero-watermark){position:relative;z-index:1}
     .tag{display:inline-flex;align-items:center;gap:8px;width:fit-content;padding:8px 12px;border-radius:999px;background:#ecfeff;color:#0f766e;font-size:13px;font-weight:900;border:1px solid #a5f3fc}
-    .hero-title{margin:20px 0 12px;font-size:42px;line-height:1.05;letter-spacing:-.8px}
-    .hero-desc{margin:0;color:var(--muted);font-size:16px;line-height:1.7;max-width:760px}
-    .quick-card{padding:28px;display:flex;flex-direction:column;justify-content:center}
-    .quick-card h2{margin:0 0 10px;font-size:25px}
-    .quick-card p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}
-    .status-list{margin-top:22px;display:grid;gap:10px}
-    .status-item{padding:13px 14px;border:1px solid #e2e8f0;background:#fff;border-radius:16px;display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:13px;color:var(--muted)}
-    .status-item strong{color:var(--primary-dark)}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-top:6px}
-    .section-head h2{margin:0;font-size:25px}.section-head p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .hero-title{margin:20px 0 12px;font-size:46px;line-height:1.04;letter-spacing:-.9px;max-width:760px}
+    .hero-desc{margin:0;color:var(--muted);font-size:16px;line-height:1.7;max-width:790px}
+    .hero-badges{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
+    .hero-badge{border:1px solid #dbeafe;background:#fff;color:#334155;border-radius:999px;padding:9px 13px;font-size:13px;font-weight:800}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:34px 0 16px}
+    .section-head h2{margin:0;font-size:27px;letter-spacing:-.3px}
+    .section-head p{margin:6px 0 0;color:var(--muted);font-size:14px}
     .modules-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-    .module-card{padding:22px;min-height:205px;cursor:pointer;transition:.18s ease;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit;position:relative;overflow:hidden}
-    .module-card:hover{transform:translateY(-4px);box-shadow:0 28px 70px rgba(15,23,42,.13);border-color:#bae6fd}
-    .module-card:after{content:"";position:absolute;right:-45px;top:-45px;width:120px;height:120px;border-radius:999px;background:rgba(14,165,233,.08)}
-    .module-icon{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;color:white;font-size:25px;background:linear-gradient(135deg,var(--primary),var(--secondary));margin-bottom:16px;position:relative;z-index:1}
-    .module-card h3{margin:0 0 8px;font-size:18px;position:relative;z-index:1}.module-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55;position:relative;z-index:1}
-    .module-footer{margin-top:18px;display:flex;justify-content:space-between;align-items:center;color:var(--primary-dark);font-weight:900;font-size:13px;position:relative;z-index:1}
-    .note{background:rgba(255,255,255,.86);border:1px solid #e2e8f0;border-radius:20px;padding:16px 18px;color:var(--muted);font-size:13px;line-height:1.6}
+    .module-card{min-height:220px;cursor:pointer;transition:.18s ease;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit;position:relative;overflow:hidden;padding:0}
+    .module-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);border-color:#bae6fd}
+    .module-card::after{content:"";position:absolute;right:-42px;top:-42px;width:122px;height:122px;border-radius:999px;background:rgba(14,165,233,.08)}
+    .module-top{padding:24px 24px 16px;position:relative;z-index:1}
+    .module-icon{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;color:#fff;font-size:26px;background:linear-gradient(135deg,var(--primary),var(--secondary));margin-bottom:18px;box-shadow:0 12px 24px rgba(14,165,233,.18)}
+    .module-card h3{margin:0 0 9px;font-size:19px;letter-spacing:-.2px}
+    .module-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .module-footer{border-top:1px solid #e2e8f0;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;color:var(--primary-dark);font-weight:900;font-size:13px;position:relative;z-index:1;background:rgba(248,250,252,.66)}
+    .access-tag{display:inline-flex;margin-top:16px;padding:6px 9px;border-radius:999px;background:#f8fafc;border:1px solid #e2e8f0;color:#475569;font-size:11px;font-weight:900}
+    .module-card.public .access-tag{background:#ecfdf5;border-color:#bbf7d0;color:#166534}
+    .note{margin-top:18px;padding:16px 18px;color:var(--muted);font-size:13px;line-height:1.6}
     .footer{position:relative;z-index:1;text-align:center;padding:20px;color:var(--muted);font-size:12px}
-    @media(max-width:1080px){.hero{grid-template-columns:1fr}.modules-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:760px){.topbar{flex-direction:column;align-items:flex-start}.top-pill{white-space:normal}.main{padding:28px 14px 42px}.hero-card,.quick-card{border-radius:22px;padding:24px}.hero-title{font-size:32px}.modules-grid{grid-template-columns:1fr}.section-head{flex-direction:column;align-items:flex-start}.hero-watermark{width:220px;max-width:52%}.bg-watermark{width:360px;max-width:80vw}}
+    @media(max-width:1080px){.modules-grid{grid-template-columns:repeat(3,1fr)}.hero-title{font-size:40px}}
+    @media(max-width:760px){.topbar{flex-direction:column;align-items:flex-start}.top-pill{white-space:normal}.main{padding:28px 14px 42px}.hero-card{border-radius:22px;padding:26px;min-height:320px}.hero-title{font-size:32px}.hero-watermark{width:230px;max-width:52%}.modules-grid{grid-template-columns:1fr}.section-head{flex-direction:column;align-items:flex-start}.bg-watermark{width:360px;max-width:80vw}}
   </style>
 </head>
 
@@ -84,46 +80,45 @@
           <img class="hero-watermark" src="https://i.ibb.co/tpr2YCr0/LOGO-MSSD-PP.jpg" alt="Watermark Logo MSSD">
           <div class="tag">🤾 Sistem Rasmi Kejohanan</div>
           <h2 class="hero-title">Kejohanan Bola Baling Peringkat Daerah</h2>
-        </div>
-        <div class="quick-card">
-          <h2>Pilih modul sistem</h2>
-          <div class="status-list">
-            <div class="status-item"><span>Admin</span><strong>Kod Admin</strong></div>
-            <div class="status-item"><span>Urusetia</span><strong>Kod Urusetia</strong></div>
-            <div class="status-item"><span>Guru</span><strong>Kod Sekolah</strong></div>
-            <div class="status-item"><span>Keputusan</span><strong>Kod Pegawai Meja</strong></div>
-            <div class="status-item"><span>Dashboard</span><strong>Umum</strong></div>
+          <p class="hero-desc">Portal utama untuk mengakses sistem pengurusan kejohanan. Sila pilih modul yang berkaitan untuk meneruskan urusan pentadbiran, pendaftaran, keputusan dan paparan umum.</p>
+          <div class="hero-badges">
+            <span class="hero-badge">Admin & Urusetia</span>
+            <span class="hero-badge">Pendaftaran Sekolah</span>
+            <span class="hero-badge">Input Keputusan</span>
+            <span class="hero-badge">Dashboard Umum</span>
           </div>
         </div>
       </section>
 
       <section>
         <div class="section-head">
-          <div><h2>Menu Utama</h2><p>Sila pilih modul untuk meneruskan urusan kejohanan.</p></div>
+          <div>
+            <h2>Menu Utama</h2>
+            <p>Sila pilih modul untuk meneruskan urusan kejohanan.</p>
+          </div>
         </div>
 
         <div class="modules-grid">
-          <a class="module-card" href="#" onclick="openModule('admin');return false;"><div><div class="module-icon">⚙️</div><h3>Admin</h3><p>Tetapan kejohanan, kategori, sekolah, gelanggang dan pengguna.</p></div><div class="module-footer"><span>Buka Admin</span><span>→</span></div></a>
-          <a class="module-card" href="#" onclick="openModule('urusetia');return false;"><div><div class="module-icon">🧩</div><h3>Urusetia</h3><p>Semakan pendaftaran, kumpulan, jadual dan kawalan kejohanan.</p></div><div class="module-footer"><span>Buka Urusetia</span><span>→</span></div></a>
-          <a class="module-card" href="#" onclick="openModule('guru');return false;"><div><div class="module-icon">🏫</div><h3>Guru</h3><p>Pendaftaran pasukan dan pemain mengikut kod akses sekolah.</p></div><div class="module-footer"><span>Buka Guru</span><span>→</span></div></a>
-          <a class="module-card" href="#" onclick="openModule('keputusan');return false;"><div><div class="module-icon">📝</div><h3>Keputusan</h3><p>Input jaringan, sahkan keputusan dan kemas kini carta kumpulan.</p></div><div class="module-footer"><span>Buka Keputusan</span><span>→</span></div></a>
-          <a class="module-card" href="#" onclick="openModule('dashboard');return false;"><div><div class="module-icon">📊</div><h3>Dashboard</h3><p>Paparan umum keputusan terkini, jadual dan carta kumpulan.</p></div><div class="module-footer"><span>Buka Dashboard</span><span>→</span></div></a>
+          <a class="module-card" href="#" onclick="openModule('admin');return false;"><div class="module-top"><div class="module-icon">⚙️</div><h3>Admin</h3><p>Tetapan kejohanan, kategori, sekolah, gelanggang dan pengguna sistem.</p><span class="access-tag">Kod Admin</span></div><div class="module-footer"><span>Buka Admin</span><span>→</span></div></a>
+          <a class="module-card" href="#" onclick="openModule('urusetia');return false;"><div class="module-top"><div class="module-icon">🧩</div><h3>Urusetia</h3><p>Semakan pendaftaran, susunan kumpulan, jadual dan kawalan kejohanan.</p><span class="access-tag">Kod Urusetia</span></div><div class="module-footer"><span>Buka Urusetia</span><span>→</span></div></a>
+          <a class="module-card" href="#" onclick="openModule('guru');return false;"><div class="module-top"><div class="module-icon">🏫</div><h3>Guru</h3><p>Pendaftaran pasukan dan pemain berdasarkan kod akses sekolah masing-masing.</p><span class="access-tag">Kod Sekolah</span></div><div class="module-footer"><span>Buka Guru</span><span>→</span></div></a>
+          <a class="module-card" href="#" onclick="openModule('keputusan');return false;"><div class="module-top"><div class="module-icon">📝</div><h3>Keputusan</h3><p>Input jaringan, sahkan keputusan dan kemas kini carta kumpulan.</p><span class="access-tag">Kod Pegawai Meja</span></div><div class="module-footer"><span>Buka Keputusan</span><span>→</span></div></a>
+          <a class="module-card public" href="#" onclick="openModule('dashboard');return false;"><div class="module-top"><div class="module-icon">📊</div><h3>Dashboard</h3><p>Paparan umum keputusan terkini, jadual perlawanan dan carta kumpulan.</p><span class="access-tag">Terbuka Umum</span></div><div class="module-footer"><span>Buka Dashboard</span><span>→</span></div></a>
         </div>
       </section>
 
-      <div class="note">Nota admin: sebelum digunakan, gantikan nilai <strong>WEB_APP_URL</strong> dalam kod fail ini kepada pautan Web App Google Apps Script tuan.</div>
+      <div class="note">Portal ini memaparkan lima modul utama sistem. Modul Admin, Urusetia, Guru dan Keputusan menggunakan kod akses masing-masing, manakala Dashboard dibuka sebagai paparan umum.</div>
     </main>
 
     <footer class="footer">Portal Kejohanan Bola Baling MSSD • Dibina untuk pengurusan kejohanan daerah</footer>
   </div>
 
-<script>
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyahOXggCZJq3-czC8DAUYO6L7Jj8VFh1Xv3kTRJzRqNq0bQU4GwETDGJ4UdQt5VtWOVA/exec";
-
-  function openModule(moduleName) {
-    const baseUrl = WEB_APP_URL.replace(/\/+$/, "");
-    window.location.href = baseUrl + "?module=" + encodeURIComponent(moduleName);
-  }
-</script>
+  <script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyahOXggCZJq3-czC8DAUYO6L7Jj8VFh1Xv3kTRJzRqNq0bQU4GwETDGJ4UdQt5VtWOVA/exec";
+    function openModule(moduleName){
+      const baseUrl = WEB_APP_URL.replace(/\/+$/, "");
+      window.location.href = baseUrl + "?module=" + encodeURIComponent(moduleName);
+    }
+  </script>
 </body>
 </html>
