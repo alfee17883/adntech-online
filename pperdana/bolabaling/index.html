@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portal Kejohanan Bola Baling MSSD Petaling Perdana</title>
-  <!-- V2.4: Portal sementara - hanya Guru / Pendaftaran aktif -->
+  <!-- V2.2: Portal utama kekal, digunakan sebagai sasaran Kembali ke Utama -->
 
   <!--
     PORTAL UTAMA SISTEM KEJOHANAN BOLA BALING MSSD PETALING PERDANA
-    Semakan Akhir V2.4 - Mod sementara pendaftaran guru sahaja
+    Semakan Akhir V2.1
 
     Nota penting:
     1. Fail ini sesuai diletakkan sebagai index.html di GitHub Pages.
@@ -335,54 +335,6 @@
       font-weight:950;
     }
 
-
-
-    /* MOD SEMENTARA: kad ditutup tetapi masih dipaparkan */
-    .module-card.disabled{
-      cursor:not-allowed;
-      opacity:.48;
-      filter:grayscale(.25);
-      pointer-events:auto;
-    }
-
-    .module-card.disabled:hover{
-      transform:none;
-      box-shadow:var(--shadow);
-      border-color:rgba(226,232,240,.95);
-    }
-
-    .module-card.disabled::before{
-      content:"DITUTUP SEMENTARA";
-      position:absolute;
-      top:14px;
-      right:14px;
-      z-index:3;
-      background:#fee2e2;
-      color:#991b1b;
-      border:1px solid #fecaca;
-      border-radius:999px;
-      padding:6px 9px;
-      font-size:10px;
-      font-weight:950;
-      letter-spacing:.04em;
-    }
-
-    .module-card.active-now::before{
-      content:"DIBUKA";
-      position:absolute;
-      top:14px;
-      right:14px;
-      z-index:3;
-      background:#dcfce7;
-      color:#166534;
-      border:1px solid #bbf7d0;
-      border-radius:999px;
-      padding:6px 9px;
-      font-size:10px;
-      font-weight:950;
-      letter-spacing:.04em;
-    }
-
     .module-card.public .access-tag{background:#ecfdf5;border-color:#bbf7d0;color:#166534}
     .module-card.admin .module-icon{background:linear-gradient(135deg,#0f172a,#334155)}
     .module-card.guru .module-icon{background:linear-gradient(135deg,#0f766e,#14b8a6)}
@@ -465,7 +417,7 @@
         </div>
 
         <div class="modules-grid">
-          <a class="module-card public disabled" href="#" onclick="openModule('dashboard');return false;">
+          <a class="module-card public" href="#" onclick="openModule('dashboard');return false;">
             <div class="module-top">
               <div class="module-icon">📊</div>
               <h3>Dashboard</h3>
@@ -473,7 +425,7 @@
             </div>
           </a>
 
-          <a class="module-card admin disabled" href="#" onclick="openModule('admin');return false;">
+          <a class="module-card admin" href="#" onclick="openModule('admin');return false;">
             <div class="module-top">
               <div class="module-icon">⚙️</div>
               <h3>Admin</h3>
@@ -481,7 +433,7 @@
             </div>
           </a>
 
-          <a class="module-card guru active-now" href="#" onclick="openModule('guru');return false;">
+          <a class="module-card guru" href="#" onclick="openModule('guru');return false;">
             <div class="module-top">
               <div class="module-icon">🏫</div>
               <h3>Guru / Pendaftaran</h3>
@@ -489,7 +441,7 @@
             </div>
           </a>
 
-          <a class="module-card urusetia disabled" href="#" onclick="openModule('urusetia');return false;">
+          <a class="module-card urusetia" href="#" onclick="openModule('urusetia');return false;">
             <div class="module-top">
               <div class="module-icon">🧩</div>
               <h3>Urusetia</h3>
@@ -497,7 +449,7 @@
             </div>
           </a>
 
-          <a class="module-card jadual disabled" href="#" onclick="openModule('jadual');return false;">
+          <a class="module-card jadual" href="#" onclick="openModule('jadual');return false;">
             <div class="module-top">
               <div class="module-icon">📅</div>
               <h3>Jadual Perlawanan</h3>
@@ -505,7 +457,7 @@
             </div>
           </a>
 
-          <a class="module-card keputusan disabled" href="#" onclick="openModule('keputusan');return false;">
+          <a class="module-card keputusan" href="#" onclick="openModule('keputusan');return false;">
             <div class="module-top">
               <div class="module-icon">📝</div>
               <h3>Keputusan</h3>
@@ -513,7 +465,7 @@
             </div>
           </a>
 
-          <a class="module-card kalah disabled" href="#" onclick="openModule('kalah_mati');return false;">
+          <a class="module-card kalah" href="#" onclick="openModule('kalah_mati');return false;">
             <div class="module-top">
               <div class="module-icon">🏆</div>
               <h3>Kalah Mati</h3>
@@ -521,7 +473,7 @@
             </div>
           </a>
 
-          <a class="module-card laporan disabled" href="#" onclick="openModule('laporan');return false;">
+          <a class="module-card laporan" href="#" onclick="openModule('laporan');return false;">
             <div class="module-top">
               <div class="module-icon">🖨️</div>
               <h3>Laporan Rasmi</h3>
@@ -543,16 +495,9 @@
       URL Web App Google Apps Script.
       Tukar nilai di bawah sahaja jika deployment Apps Script tuan berubah.
     */
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzGWv1yB64TxNiAkMLzXOd3azAQYLM_IvkpLfudMGkdSm_8g2o1GXu2CwYjcQF-8POmNg/exec";
-
-    const ACTIVE_MODULES = ["guru"];
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwXcDDf5cAtKsqgvcg1_JNsJqDkwuwgDOjN0HTnN6pOmbEQlKaYp4QEkjT01CwfFZEbXw/exec";
 
     function openModule(moduleName){
-      if(!ACTIVE_MODULES.includes(moduleName)){
-        alert("Modul ini ditutup sementara. Buat masa ini, hanya Guru / Pendaftaran dibuka.");
-        return;
-      }
-
       const baseUrl = WEB_APP_URL.replace(/\/+$/, "");
       window.location.href = baseUrl + "?module=" + encodeURIComponent(moduleName);
     }
