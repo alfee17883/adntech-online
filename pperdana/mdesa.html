@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12314f">
+  <meta name="description" content="Portal rasmi pendaftaran Kejohanan Merentas Desa MSSD Petaling Perdana 2026.">
+  <title>Kejohanan Merentas Desa MSSD Petaling Perdana 2026</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #12314f;
+      --blue: #1d6eb1;
+      --ink: #18344e;
+      --muted: #59718a;
+      --line: #dce6f0;
+      --bg: #edf3f9;
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 14%, rgba(180, 211, 236, .47), transparent 39%),
+        radial-gradient(circle at 87% 88%, rgba(190, 220, 239, .42), transparent 37%),
+        linear-gradient(135deg, #eaf2f9 0%, #f8fbff 58%, #edf3f9 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 18px;
+    }
+    .landing {
+      position: relative;
+      width: min(100%, 630px);
+      background: #fff;
+      padding: clamp(32px, 6vw, 60px) clamp(24px, 7vw, 62px) 33px;
+      text-align: center;
+      border: 1px solid #e1eaf4;
+      border-radius: 22px;
+      box-shadow: 0 20px 70px rgba(24, 61, 97, .12);
+    }
+    .landing::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 6px;
+      border-radius: 22px 22px 0 0;
+      background: linear-gradient(90deg, #12314f, #2e78b4, #246b53);
+    }
+    .logo {
+      display: block;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 28px;
+      object-fit: contain;
+    }
+    .logo-fallback {
+      display: none;
+      margin: 0 auto 28px;
+      width: 112px;
+      height: 112px;
+      border-radius: 20px;
+      background: #0c713a;
+      color: #fff;
+      font-size: 18px;
+      line-height: 112px;
+      font-weight: bold;
+      letter-spacing: .04em;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #476d91;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .19em;
+    }
+    h1 {
+      max-width: 500px;
+      margin: 0 auto;
+      color: var(--navy);
+      font-size: clamp(25px, 4.5vw, 37px);
+      line-height: 1.23;
+      letter-spacing: -.025em;
+      text-transform: uppercase;
+    }
+    .organizer {
+      margin: 16px 0 0;
+      font-size: clamp(15px, 3.2vw, 19px);
+      font-weight: 700;
+      letter-spacing: .035em;
+      color: #27608f;
+    }
+    .year {
+      margin: 21px 0 28px;
+      font-size: 49px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: .05em;
+      font-variant-numeric: tabular-nums;
+    }
+    .divider {
+      width: 76px;
+      height: 3px;
+      margin: 0 auto 25px;
+      background: #b8cde1;
+      border-radius: 99px;
+    }
+    .desc {
+      max-width: 440px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .login-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: min(100%, 350px);
+      min-height: 52px;
+      padding: 13px 25px;
+      margin: 0 auto;
+      background: var(--blue);
+      border: 1px solid #1a65a4;
+      border-radius: 11px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 5px 13px rgba(29, 110, 177, .17);
+      transition: background .15s ease, transform .15s ease;
+    }
+    .login-btn:hover { background: #145b97; transform: translateY(-1px); }
+    .login-btn:focus-visible { outline: 3px solid #91beeb; outline-offset: 4px; }
+    .login-btn svg { flex: 0 0 auto; }
+    .note { margin: 16px 0 0; color: #69819a; font-size: 12px; line-height: 1.5; }
+    .footer {
+      margin-top: 34px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: #7b8fa3;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .notice {
+      margin: 20px auto 0;
+      padding: 12px 14px;
+      max-width: 440px;
+      border: 1px solid #f2d18b;
+      border-radius: 9px;
+      background: #fff9e7;
+      color: #77510d;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    [hidden] { display: none !important; }
+    @media (prefers-reduced-motion: reduce) {
+      .login-btn { transition: none; }
+    }
+    @media (max-width: 450px) {
+      .landing { border-radius: 17px; }
+      .landing::before { border-radius: 17px 17px 0 0; }
+      .logo, .logo-fallback { width: 95px; height: 95px; margin-bottom: 25px; }
+      .logo-fallback { line-height: 95px; }
+      .year { font-size: 43px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="landing">
+    <img
+      class="logo"
+      id="logoMssd"
+      src="https://i.ibb.co/nNCxt72m/LOGO-MSSD-PP.png"
+      alt="Logo MSSD Petaling Perdana"
+      width="112"
+      height="112"
+      referrerpolicy="no-referrer">
+    <div class="logo-fallback" id="logoFallback" aria-hidden="true">MSSD PP</div>
+
+    <p class="eyebrow">Portal Pendaftaran Sekolah</p>
+    <h1>Kejohanan Merentas Desa</h1>
+    <p class="organizer">MSSD PETALING PERDANA</p>
+    <p class="year">2026</p>
+    <div class="divider" aria-hidden="true"></div>
+    <p class="desc">Selamat datang ke portal pendaftaran sekolah bagi Kejohanan Merentas Desa MSSD Petaling Perdana.</p>
+
+    <a class="login-btn" id="loginLink" href="#">
+      <span>Log Masuk</span>
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14m-6-6 6 6-6 6"/>
+      </svg>
+    </a>
+    <p class="note">Gunakan ID pengguna dan kata laluan sekolah yang telah diberikan.</p>
+    <p class="notice" id="configNotice" hidden role="alert">
+      Pautan portal pendaftaran belum ditetapkan. Pentadbir perlu memasukkan URL Google Apps Script berakhir dengan /exec dalam fail index.html.
+    </p>
+
+    <footer class="footer">Pejabat Pendidikan Daerah Petaling Perdana</footer>
+  </main>
+
+  <script>
+    // Pautan portal versi /exec telah ditetapkan untuk pelancaran.
+    const URL_PORTAL_PENDAFTARAN = 'https://script.google.com/macros/s/AKfycbwjFu02au1YIfoz8uvgYUoT3xeqnF-es5JrI-9JtTocgjhGbZyNne5Ix4cuCN-7eeqp/exec';
+
+    const loginLink = document.getElementById('loginLink');
+    const configNotice = document.getElementById('configNotice');
+    const isValidUrl = /^https:\/\/script\.google\.com\/macros\/s\/[^/\s]+\/exec(?:[?#].*)?$/i.test(URL_PORTAL_PENDAFTARAN.trim());
+
+    if (isValidUrl) {
+      loginLink.href = URL_PORTAL_PENDAFTARAN.trim();
+    } else {
+      loginLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        configNotice.hidden = false;
+      });
+    }
+
+    // Papar label simpanan sekiranya hos logo tidak dapat dicapai.
+    const logo = document.getElementById('logoMssd');
+    logo.addEventListener('error', function () {
+      logo.hidden = true;
+      document.getElementById('logoFallback').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
