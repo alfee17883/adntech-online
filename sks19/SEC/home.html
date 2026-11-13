@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c365b">
+  <meta name="description" content="SAKSESS Evaluation Center — Portal ibu bapa dan penjaga SK Seksyen 19 untuk akses transkrip PBD.">
+  <meta name="referrer" content="no-referrer">
+  <title>SAKSESS Evaluation Center | Portal Ibu Bapa</title>
+  <style>
+    :root{--navy:#0d2d51;--navy2:#173f67;--teal:#008c96;--muted:#657c97;--line:#dae5ef;--bg:#f3f7fb;--mint:#eaf7f6;--white:#fff;--shadow:0 20px 70px rgba(9,43,75,.11)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--navy);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);line-height:1.55}
+    a{color:inherit}
+    a:focus-visible{outline:3px solid #37b6c4;outline-offset:4px}
+    .page{min-height:100svh;display:flex;flex-direction:column}
+    .topbar{background:#fff;border-bottom:1px solid var(--line)}
+    .top-inner{max-width:1160px;padding:16px 28px;margin:auto;display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
+    .brand-mark{width:58px;height:58px;display:grid;place-items:center;border:1px solid #e6edf2;background:white;border-radius:17px;box-shadow:0 5px 14px #102f5215;overflow:hidden}
+    .brand-mark img{width:51px;height:51px;object-fit:contain}
+    .brand-name{font-size:20px;font-weight:850;letter-spacing:-.025em;line-height:1.1}
+    .brand-small{font-size:11px;color:#69809e;letter-spacing:.01em}
+    .top-label{font-size:12px;font-weight:750;color:#216476;background:#eaf6f6;border:1px solid #c9e7e8;border-radius:999px;padding:8px 14px;text-align:center}
+    main{width:100%;max-width:1160px;margin:auto;padding:44px 28px 64px}
+    .hero{overflow:hidden;border:1px solid #dce6ed;border-radius:24px;background:#fff;box-shadow:var(--shadow);display:grid;grid-template-columns:1.04fr .96fr;min-height:495px}
+    .hero-info{padding:54px clamp(28px,5vw,68px);display:flex;flex-direction:column;justify-content:center}
+    .eyebrow{color:#008e9d;font-weight:850;letter-spacing:.095em;text-transform:uppercase;font-size:12px}
+    h1{font-size:clamp(34px,4.3vw,54px);line-height:1.13;letter-spacing:-.045em;margin:17px 0 20px;max-width:570px}
+    .intro{font-size:16px;color:var(--muted);max-width:510px;margin:0 0 26px}
+    .button{border:0;background:linear-gradient(100deg,#0d68a5,#0b9ea5);color:#fff;border-radius:12px;min-height:59px;padding:15px 21px;display:inline-flex;align-items:center;justify-content:center;gap:13px;font-weight:850;font-size:16px;text-decoration:none;box-shadow:0 12px 23px rgba(0,128,151,.19);width:100%;max-width:420px;transition:transform .15s,box-shadow .15s}
+    .button:hover{transform:translateY(-2px);box-shadow:0 15px 27px rgba(0,128,151,.24)}
+    .button:active{transform:translateY(0)}
+    .arr{font-size:22px;line-height:1}
+    .subnote{max-width:430px;font-size:12px;margin-top:15px;color:#66839a}
+    .config-warning{display:none;border:1px solid #e6bf82;color:#895a10;background:#fff6e8;border-radius:10px;padding:12px 14px;margin-top:15px;font-size:13px;max-width:430px}
+    .config-warning.show{display:block}
+    .hero-art{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(146deg,#103a65 0%,#0a5c81 56%,#078990 100%);padding:48px clamp(30px,4vw,59px);color:#fff;display:flex;flex-direction:column;justify-content:center}
+    .hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.13);border-radius:50%;z-index:-1}
+    .hero-art:before{height:650px;width:650px;right:-330px;top:-370px}
+    .hero-art:after{height:480px;width:480px;right:-280px;bottom:-275px}
+    .art-kicker{color:#abf6f3;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.06em}
+    .hero-art h2{font-size:clamp(30px,3.45vw,44px);line-height:1.17;letter-spacing:-.035em;margin:17px 0 19px}
+    .hero-art p{color:#d8edf5;font-size:15px;line-height:1.85;margin:0 0 35px}
+    .doc-preview{border:1px solid #ffffff60;background:#ffffff1f;border-radius:16px;padding:18px 19px;backdrop-filter:blur(4px)}
+    .preview-head{display:flex;align-items:center;justify-content:space-between;font-weight:850;margin-bottom:13px;font-size:15px}
+    .doc-row{display:flex;gap:12px;align-items:center;border-radius:9px;background:#f7fafc;color:#163a59;padding:13px 14px;margin:9px 0;font-size:13px}
+    .doc-row b{margin-left:auto;font-size:11px;color:#008c96}
+    .section{padding-top:42px}
+    .section h2{font-size:23px;letter-spacing:-.025em;margin:0 0 8px}
+    .section-lead{color:var(--muted);font-size:14px;margin:0 0 19px}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .card{border:1px solid #dde7f0;background:#fff;border-radius:14px;padding:19px 20px;min-height:115px;display:flex;align-items:flex-start;gap:14px}
+    .iconbox{background:#e9f5f7;border-radius:10px;width:40px;height:40px;display:grid;place-items:center;font-size:22px;flex-shrink:0}
+    .card-title{font-size:16px;font-weight:800;margin:0 0 3px}
+    .card-sub{font-size:12px;color:#75869c;margin:0 0 8px}
+    .tag{display:inline-block;border-radius:50px;padding:3px 9px;font-size:11px;font-weight:800;background:#edf0f5;color:#6f7e96}
+    .tag.live{background:#e3f7ec;color:#116748}
+    .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:18px}
+    .step{border-radius:14px;background:#eaf1f7;padding:18px;font-size:13px;color:#536e86}
+    .step strong{display:block;color:#163a59;font-size:14px;margin-bottom:6px}
+    .num{display:inline-grid;place-items:center;width:24px;height:24px;background:#cfe5ed;border-radius:50%;font-size:12px;margin-right:5px;color:#155472}
+    footer{margin-top:auto;border-top:1px solid #dce5ed;background:#fff;padding:22px 28px;text-align:center;font-size:12px;color:#6b7f97}
+    footer strong{color:#285172}
+    @media(max-width:850px){.hero{grid-template-columns:1fr}.hero-info{padding:42px 32px}.hero-art{padding:35px 32px}.hero-art h2{max-width:570px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:550px){.top-inner{padding:13px 18px}.brand-mark{height:50px;width:50px;border-radius:13px}.brand-mark img{height:45px;width:45px}.brand-name{font-size:18px}.top-label{font-size:10px;padding:7px 9px}main{padding:20px 14px 38px}.hero{border-radius:16px}.hero-info{padding:32px 23px}.hero-art{padding:30px 23px}.hero-art h2{font-size:30px}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.section{padding-top:30px}.card{min-height:97px}h1{font-size:37px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="top-inner">
+        <a class="brand" href="#utama" aria-label="SAKSESS Evaluation Center — ke atas halaman">
+          <span class="brand-mark"><img src="https://i.ibb.co/JFKBrtph/Logo-SKS19-png-opt630x630o0-0s630x630.png" alt="Logo SK Seksyen 19" width="51" height="51"></span>
+          <span><span class="brand-name">SAKSESS</span><span class="brand-small" style="display:block">Evaluation Center</span></span>
+        </a>
+        <span class="top-label">Portal Ibu Bapa / Penjaga</span>
+      </div>
+    </header>
+    <main id="utama">
+      <section class="hero" aria-labelledby="tajuk">
+        <div class="hero-info">
+          <div class="eyebrow">Selamat datang ke SEC</div>
+          <h1 id="tajuk">Transkrip anak anda, dalam satu tempat.</h1>
+          <p class="intro">Portal rasmi untuk ibu bapa dan penjaga SK Seksyen 19 mendapatkan transkrip PBD yang telah diterbitkan oleh pihak sekolah.</p>
+          <a id="portalLink" class="button" href="#" aria-label="Log masuk ke portal ibu bapa sebenar">Log Masuk Portal Ibu Bapa <span class="arr" aria-hidden="true">→</span></a>
+          <div class="subnote">Log masuk akan dilakukan di portal SEC yang selamat menggunakan No. MyKid murid dan No. Pengenalan penjaga berdaftar.</div>
+          <div id="configWarning" class="config-warning" role="status">Pautan portal belum dikonfigurasi. Pentadbir perlu menetapkan alamat Google Apps Script <strong>/exec</strong> dalam fail <code>index.html</code>.</div>
+        </div>
+        <div class="hero-art">
+          <div class="art-kicker">Kemudahan akses dokumen</div>
+          <h2>Pantau pentaksiran anak dengan lebih mudah.</h2>
+          <p>Bagi pelancaran awal, PBD Pertengahan Tahun dan Akhir Tahun 2026 disediakan mengikut rekod yang telah diterbitkan.</p>
+          <div class="doc-preview" aria-label="Jenis dokumen yang disokong">
+            <div class="preview-head"><span>📂 &nbsp;Koleksi Transkrip</span><span aria-hidden="true">✦</span></div>
+            <div class="doc-row"><span aria-hidden="true">📘</span> PBD Pertengahan Tahun <b>PDF</b></div>
+            <div class="doc-row"><span aria-hidden="true">📗</span> PBD Akhir Tahun <b>PDF</b></div>
+          </div>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="kategori">
+        <h2 id="kategori">Ujian &amp; Pentaksiran</h2>
+        <p class="section-lead">PBD boleh diakses apabila dokumen murid telah diterbitkan. Modul lain akan dibuka secara berperingkat.</p>
+        <div class="grid">
+          <article class="card"><span class="iconbox" aria-hidden="true">📘</span><div><h3 class="card-title">PBD</h3><p class="card-sub">Pertengahan &amp; Akhir Tahun</p><span class="tag live">Kini tersedia</span></div></article>
+          <article class="card"><span class="iconbox" aria-hidden="true">📝</span><div><h3 class="card-title">UASA</h3><p class="card-sub">Ujian Akhir Sesi Akademik</p><span class="tag">Akan datang</span></div></article>
+          <article class="card"><span class="iconbox" aria-hidden="true">📗</span><div><h3 class="card-title">Asahan Ilmu</h3><p class="card-sub">Asahan Ilmu 1, 2 dan 3</p><span class="tag">Akan datang</span></div></article>
+          <article class="card"><span class="iconbox" aria-hidden="true">🏅</span><div><h3 class="card-title">PAJSK</h3><p class="card-sub">Kokurikulum &amp; sukan</p><span class="tag">Akan datang</span></div></article>
+          <article class="card"><span class="iconbox" aria-hidden="true">🧠</span><div><h3 class="card-title">Psikometrik</h3><p class="card-sub">Pelaporan psikometrik</p><span class="tag">Akan datang</span></div></article>
+          <article class="card"><span class="iconbox" aria-hidden="true">🏃</span><div><h3 class="card-title">SEGAK &amp; BMI</h3><p class="card-sub">Kecergasan &amp; perkembangan fizikal</p><span class="tag">Akan datang</span></div></article>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="cara">
+        <h2 id="cara">Cara mendapatkan transkrip</h2>
+        <div class="steps">
+          <div class="step"><strong><span class="num">1</span> Buka portal</strong>Tekan butang Log Masuk Portal Ibu Bapa di atas.</div>
+          <div class="step"><strong><span class="num">2</span> Sahkan penjaga</strong>Masukkan MyKid murid serta pengenalan penjaga berdaftar pada portal SEC.</div>
+          <div class="step"><strong><span class="num">3</span> Pilih PBD</strong>Pilih tahun 2026 dan gunakan fungsi Buka PDF atau Muat Turun.</div>
+        </div>
+      </section>
+    </main>
+    <footer><strong>SAKSESS Evaluation Center</strong> · SK Seksyen 19 Shah Alam<br>Halaman ini tidak meminta atau menyimpan MyKid, pengenalan penjaga mahupun PDF. Semua pengesahan dibuat pada portal SEC.</footer>
+  </div>
+  <script>
+    'use strict';
+    // ===============================================================
+    // TUKAR SATU BARIS INI SAHAJA.
+    // Gunakan URL web app PORTAL IBU BAPA yang berakhir dengan /exec.
+    // JANGAN gunakan /dev, URL pentadbir, URL Google Sheets atau Drive.
+    // ===============================================================
+    const PORTAL_GAS_EXEC_URL = 'https://script.google.com/macros/s/AKfycbyvhVdbiJyeZrO83ino9WJ8uZWR8A_qywEshmkhN_YKLvMedaTfhkTpaT3yg5-MPCYC/exec';
+
+    const btn = document.getElementById('portalLink');
+    const warning = document.getElementById('configWarning');
+    const valid = /^https:\/\/script\.google\.com\/macros\/s\/[a-zA-Z0-9_-]+\/exec\/?$/.test(PORTAL_GAS_EXEC_URL.trim());
+    if (valid) {
+      btn.href = PORTAL_GAS_EXEC_URL.trim();
+    } else {
+      btn.setAttribute('aria-disabled', 'true');
+      warning.classList.add('show');
+      btn.addEventListener('click', function (event) { event.preventDefault(); warning.scrollIntoView({block:'nearest'}); });
+    }
+  </script>
+</body>
+</html>
